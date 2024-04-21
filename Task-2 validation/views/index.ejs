@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+
+<div class="container card shadow-lg
+">
+<h1>Form Submission and Validation</h1>
+<form id="submission" action="/submit" method="post">
+<div class="form-group">
+  <label for="">Name:</label>
+  <input type="text"
+    class="form-control" name="name" id="name"  placeholder="Enter Your Name" >
+</div>
+<div class="form-group">
+  <label for="">Email:</label>
+  <input type="email"
+    class="form-control" name="email" id="email" placeholder="Enter Your Email" >
+</div>
+<div class="form-group">
+  <label for="">Message:</label>
+  <input type="text"
+    class="form-control" name="msg" id="message" placeholder="Enter Your Message" >
+</div>
+<button type="submit" id="submit" class="btn btn-sm btn-primary">Submit</button>
+</form>
+</div>
+
+<script>
+  
+
+document.getElementById('submission').addEventListener('submit',(event)=>{
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var message = document.getElementById('message').value.trim();
+
+  if(name === '' || email === '' ||message ===''){
+    event.preventDefault();
+    alert('Please fill in all fields');
+  }
+})
+</script>
+
+<%- include('./partials/footer') %>
